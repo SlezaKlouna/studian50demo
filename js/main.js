@@ -105,9 +105,6 @@ function sliderCreate(element, params){
         let interval = setInterval(function() {scrollSliderFunc(-100)}, 4000);
 
         element.addEventListener('mouseover', function() {
-            // for (let i = 0; i < sliderButton.length; i++) {
-            //     sliderButton[i].style.display = 'flex';
-            // }
             clearInterval(interval);
         });
 
@@ -153,24 +150,20 @@ sliderCreate(document.querySelector('.developers-slider'), {
     autoPlay : true,
 });
 
-
-
 const modalWindow = () => {
     const element = document.querySelector('.modal-overlay');
     const elItem = document.querySelector('.modal');
-    const btn = document.querySelector('.modal-open');
-    const close = document.querySelector('.close-modal')
+    const btn = document.querySelectorAll('.hover-button');
+    const close = document.querySelector('.close-modal');
+    const title = document.querySelector('.modal-title');
 
-
-    btn.addEventListener('click', ev => {
+    projectsPortfolio.addEventListener('click', ev => {
         ev.preventDefault();
-        // const target = ev.target;
-        // const project = target.closest('.project-item');
-        //
-        // console.log(target)
+        const target = ev.target;
 
         element.classList.add('active');
         elItem.classList.add('active');
+        // title.innerHTML =
     })
 
     close.addEventListener('click', () => {
@@ -180,12 +173,11 @@ const modalWindow = () => {
 }
 
 
-modalWindow();
-
 /* ВЫЗОВЫ ФУНКЦИЙ */
 smoothScroll();
 navigationFixed();
 counterBlock();
+modalWindow();
 
 
 

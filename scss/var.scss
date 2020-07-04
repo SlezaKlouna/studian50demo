@@ -14,7 +14,28 @@ $cursorImage: url("../img/cursor1.png");
 
 
 // Modal
+$modalBg: #fff;
+$modalTextColor: #1a1a1a;
 $linkColor: #363636;
 $details: #708090;
 $modalLink: #bababa;
 $modalLinkHover: #e53935;
+
+// Mouse
+$colorBg: #222a30;
+$colorOutline: rgba(255, 255, 255, .7);
+$colorOutlineFade: #4e5559;
+
+$widthMouse: 42px;
+$heightMouse: 60px;
+$borderMouse: 6px;
+
+$posMouse: 8px;
+//$posText: 2px;
+
+$sizeTrackball: 7px;
+$posTrackball: 7px;
+$shrinkTrackball: 0.4;
+
+$animDuration: 5s;
+
