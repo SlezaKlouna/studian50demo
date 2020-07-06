@@ -36,7 +36,7 @@ const smoothScroll = () => {
 }
 
 const counterBlock = () => {
-    for ( let i of count ) {
+    for (let i of count) {
         const numberTop = i.getBoundingClientRect().top;
         let start = +i.innerHTML;
         let end = +i.dataset.count;
@@ -59,16 +59,16 @@ const counterBlock = () => {
 const navigationFixed = () => {
     const show = document.querySelector('.scroll-menu')
     window.addEventListener('scroll', function onScroll() {
-        if (window.pageYOffset > window.innerHeight / 1){
+        if (window.pageYOffset > window.innerHeight / 1) {
             show.classList.add('scroll-menu-show');
-        }else{
+        } else {
             show.classList.remove('scroll-menu-show');
         }
     })
 }
 
 
-function sliderCreate(element, params){
+function sliderCreate(element, params) {
     let sliderCont = element.querySelector('.slides');
     let sliderItem = element.querySelectorAll('.slider-item');
     const block = document.querySelector('.delelopers-block');
@@ -80,17 +80,18 @@ function sliderCreate(element, params){
     let prevSlide;
     let interval;
 
-    let scrollSliderFunc = function(n){
+    let scrollSliderFunc = function (n) {
         index += n;
-        if (index <= -(indent) * 100){
+        if (index <= -(indent) * 100) {
             index = 0;
-        } else if(index > 0){
+        } else if (index > 0) {
             index = -(indent - 1) * 100;
         }
         sliderCont.style.left = `${index}%`;
         if (params.dots) {
             showActivDots(-index / 100);
         }
+
         function showActivDots(currIndexSlide) {
             let dotsItem = block.getElementsByClassName('slider-dots_item');
 
@@ -101,24 +102,28 @@ function sliderCreate(element, params){
         }
     }
 
-    if(params.autoPlay){
-        let interval = setInterval(function() {scrollSliderFunc(-100)}, 4000);
+    if (params.autoPlay) {
+        let interval = setInterval(function () {
+            scrollSliderFunc(-100)
+        }, 4000);
 
-        element.addEventListener('mouseover', function() {
+        element.addEventListener('mouseover', function () {
             clearInterval(interval);
         });
 
-        element.addEventListener('mouseout', function() {
-            interval = setInterval(function() {scrollSliderFunc(-100)}, 4000);
+        element.addEventListener('mouseout', function () {
+            interval = setInterval(function () {
+                scrollSliderFunc(-100)
+            }, 4000);
         });
     }
 
-    if (params.dots){
+    if (params.dots) {
         let dots = document.createElement('div');
         dots.className = 'slider-dots';
         block.appendChild(dots);
 
-        for (let i = 0; i < sliderItem.length; i++){
+        for (let i = 0; i < sliderItem.length; i++) {
             let createDot = document.createElement('span');
             dots.appendChild(createDot);
             createDot.className = 'slider-dots_item';
@@ -131,13 +136,13 @@ function sliderCreate(element, params){
         }
         dotsItem[-index / 100].classList.add('active');
 
-        let dotScrollFunc = function(n){
+        let dotScrollFunc = function (n) {
             scrollSliderFunc(index = -(n * 100 / 2));
         }
 
-        dots.addEventListener('click', function(e) {
+        dots.addEventListener('click', function (e) {
             for (let i = 0; i < dotsItem.length; i++) {
-                if (e.target.classList.contains('slider-dots_item') && e.target == dotsItem[i]){
+                if (e.target.classList.contains('slider-dots_item') && e.target == dotsItem[i]) {
                     dotScrollFunc(i);
                 }
             }
@@ -146,29 +151,35 @@ function sliderCreate(element, params){
 }
 
 sliderCreate(document.querySelector('.developers-slider'), {
-    dots : true,
-    autoPlay : true,
+    dots: true,
+    autoPlay: true,
 });
 
 const modalWindow = () => {
     const element = document.querySelector('.modal-overlay');
     const elItem = document.querySelector('.modal');
-    const btn = document.querySelectorAll('.hover-button');
-    const close = document.querySelector('.close-modal');
     const title = document.querySelector('.modal-title');
+    const titelHover = document.querySelector('.hover-title');
 
     projectsPortfolio.addEventListener('click', ev => {
         ev.preventDefault();
         const target = ev.target;
+        const projectEl = target.closest('.hover-button')
 
-        element.classList.add('active');
-        elItem.classList.add('active');
-        // title.innerHTML =
+        if (projectEl) {
+            element.classList.add('active');
+            elItem.classList.add('active');
+        }
     })
 
-    close.addEventListener('click', () => {
-        element.classList.remove('active');
-        elItem.classList.remove('active')
+    element.addEventListener('click', ev => {
+        const target = ev.target;
+        if (target.closest('.close-modal') || target.classList.contains('modal-overlay')){
+            element.classList.remove('active');
+            elItem.classList.remove('active')
+        }
+
+
     })
 }
 
@@ -178,7 +189,6 @@ smoothScroll();
 navigationFixed();
 counterBlock();
 modalWindow();
-
 
 
 /* СОБЫТИЯ */
