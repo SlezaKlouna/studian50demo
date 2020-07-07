@@ -1,7 +1,9 @@
 'use strict';
 
 const hamburger = document.querySelector('.hamburger');
+// const leftMenu = document.querySelector('.menu');
 const leftMenu = document.querySelector('.menu');
+const mobileMenu = document.querySelector('.mobile-hamburger');
 const close = document.querySelector('.header-content');
 
 const anhors = document.querySelectorAll('a[href*="#"]');
@@ -15,6 +17,17 @@ const projectItemHover = document.querySelector('.project-item-hover');
 
 /* FUNCTIONS */
 const openMenu = () => leftMenu.classList.toggle('show');
+// const openMenu = () =>{
+//     const desctopMenu = document.querySelector('.hamburger');
+//     const mobileMenu = document.querySelector('.mobile-hamburger');
+//     if (desctopMenu.style.display = 'none'){
+//         leftMenu.classList.toggle('mobile-show');
+//     } else {
+//         leftMenu.classList.toggle('show');
+//     }
+//
+// }
+// const mobileOpenMenu = () => mobileMenu.classList.toggle('mobile-show');
 const closeMenu = ev => {
     if (ev.target.closest('.header-content')) {
         leftMenu.classList.remove('show');
@@ -185,6 +198,7 @@ const modalWindow = () => {
 
 
 /* ВЫЗОВЫ ФУНКЦИЙ */
+// mobileOpenMenu();
 smoothScroll();
 navigationFixed();
 counterBlock();

@@ -40,6 +40,14 @@ a{
   display: flex;
   justify-content: space-between;
   background-attachment: fixed;
+
+  @media all and (max-width: 599px) {
+    .header{
+      flex-direction: column;
+      height: 100vh;
+      background-color: #fff;
+    }
+  }
 }
 
 .home-overlay {
@@ -65,10 +73,18 @@ a{
   position: relative;
 }
 
+.mobile-hamburger{
+  display: none;
+}
+
 .logo{
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.logo-mobile{
+  display: none;
 }
 
 .hamburger{
@@ -90,7 +106,7 @@ a{
 
 
 .menu{
-  width: 15%;
+  //width: 15%;
   //width: 35%;
   height: 100%;
   position: absolute;
@@ -1110,5 +1126,8 @@ a{
 
 // -MODAL
 
-// MOUSE ELEMENT
+
+
+
+@import "media";
 
