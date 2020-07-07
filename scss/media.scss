@@ -62,11 +62,12 @@
   }
 
   .title-section{
-    width: 100%;
+    width: 90%;
   }
 
   .about-content{
     flex-direction: column;
+    margin-top: 60%;
   }
   .about-content__text{
     width: 90%;
@@ -76,13 +77,13 @@
   .decoration-element{
     transform: rotate(90deg);
     margin: -30% auto;
-    height: 50vh;
+    height: 40vh;
   }
 
-  .contacts-element{
-    margin: -40%;
-    height: 50vh;
-  }
+  //.contacts-element{
+  //  margin: -40%;
+  //  height: 50vh;
+  //}
 
   .about-content__counter{
     width: 100%;
