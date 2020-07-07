@@ -48,11 +48,13 @@
     width: 100%;
   }
   .header-content{
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
     h1{
       width: auto;
       text-align: center;
       padding: 0;
+      font-size: 25px;
     }
   }
   .mouse{
@@ -138,7 +140,7 @@
   .delelopers-block{
     height: 100vh;
     align-items: center;
-    margin-top: 40%;
+    margin-top: 50%;
   }
   .developers-slider{
     width: 90%;
@@ -160,6 +162,9 @@
       height: auto;
       align-items: center;
     }
+    .slides-content-text{
+      font-size: 15px;
+    }
   }
   .slider-dots{
     top: 100%;
@@ -179,8 +184,14 @@
 
   .contacts-form, .contacts-info{
     width: 100%;
+    align-items: center;
   }
 
+  .contacts-form{
+    form{
+      align-items: center;
+    }
+  }
 
 }
 
