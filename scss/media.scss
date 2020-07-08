@@ -15,6 +15,8 @@
   .navbar{
     width: 100%;
     height: 20vh;
+    z-index: 5;
+    position: fixed;
   }
   .logo-full{
     display: none;
@@ -29,7 +31,7 @@
       max-width: 10%;
     }
   }
-  .desctop-hamburger{ display: none }
+  //.desctop-hamburger{ display: none }
 
   .mobile-hamburger{
     display: flex;
@@ -38,18 +40,22 @@
   .scroll-menu{
     display: none;
   }
-  #menu-mobile{
-    left: 0;
-    top: -60vh;
-    height: 50%;
-  }
-  .mobile-show{
-    top: 20vh;
+
+  .menu{
     width: 100%;
+    height: 80%;
+    top: 20%;
+    left: -100%;
+    position: fixed;
   }
+  .show{
+    left: 0;
+  }
+
   .header-content{
     width: 90%;
     margin: 0 auto;
+    height: 100vh;
     h1{
       width: auto;
       text-align: center;
@@ -76,14 +82,9 @@
 
   .decoration-element{
     transform: rotate(90deg);
-    margin: -30% auto;
+    margin: -20% auto;
     height: 40vh;
   }
-
-  //.contacts-element{
-  //  margin: -40%;
-  //  height: 50vh;
-  //}
 
   .about-content__counter{
     width: 100%;
@@ -192,6 +193,15 @@
     form{
       align-items: center;
     }
+  }
+  .form-inputs{
+    flex-direction: column;
+  }
+  .contact-content__item{
+    width: 100%;
+  }
+  .massage-lable{
+    width: 90%;
   }
 
 }
