@@ -15,19 +15,25 @@ const projectItem = document.querySelectorAll('.project-item');
 const projectItemHover = document.querySelector('.project-item-hover');
 
 
+class DBConnect {
+    getData = async (url) => {
+        const res = await fetch(url);
+        if (res.ok) {
+            return res.json();
+        } else {
+            throw new Error(`Failed to access data ${url}`)
+        }
+    }
+    getDbData = async () => {
+        return await this.getData('db/db.json')
+    }
+}
+
+// const dbConnect = new DBConnect();
+
+
 /* FUNCTIONS */
 const openMenu = () => leftMenu.classList.toggle('show');
-// const openMenu = () =>{
-//     const desctopMenu = document.querySelector('.hamburger');
-//     const mobileMenu = document.querySelector('.mobile-hamburger');
-//     if (desctopMenu.style.display = 'none'){
-//         leftMenu.classList.toggle('mobile-show');
-//     } else {
-//         leftMenu.classList.toggle('show');
-//     }
-//
-// }
-// const mobileOpenMenu = () => mobileMenu.classList.toggle('mobile-show');
 const closeMenu = ev => {
     if (ev.target.closest('.header-content')) {
         leftMenu.classList.remove('show');
@@ -168,42 +174,135 @@ sliderCreate(document.querySelector('.developers-slider'), {
     autoPlay: true,
 });
 
-const modalWindow = () => {
-    const element = document.querySelector('.modal-overlay');
-    const elItem = document.querySelector('.modal');
-    const title = document.querySelector('.modal-title');
-    const titelHover = document.querySelector('.hover-title');
 
-    projectsPortfolio.addEventListener('click', ev => {
-        ev.preventDefault();
-        const target = ev.target;
-        const projectEl = target.closest('.hover-button')
-
-        if (projectEl) {
-            element.classList.add('active');
-            elItem.classList.add('active');
-        }
-    })
-
-    element.addEventListener('click', ev => {
-        const target = ev.target;
-        if (target.closest('.close-modal') || target.classList.contains('modal-overlay')){
-            element.classList.remove('active');
-            elItem.classList.remove('active')
-        }
-
-
+const createProject = data => {
+    data.results.forEach(item => {
+        const {title, img, category, id} = item
+        const card = document.createElement('div');
+        card.classList.add('project-item');
+        card.dataset.category = `${category}`
+        card.style.backgroundImage = `url(${img})`;
+        card.innerHTML = `
+                <div class="project-item-hover">
+                    <h3 class="hover-title">${title}</h3>
+                    <button id="modal ${id}"
+                            class="hover-button modal-open"
+                            data-open-modal="">Подробнее ...
+                    </button>
+                </div>
+        `
+        console.log(card);
+        projectsPortfolio.appendChild(card);
     })
 }
 
 
+// const modalWindow = () => {
+//     const element = document.querySelector('.modal-overlay');
+//     const elItem = document.querySelector('.modal');
+//     // const target = ev.target;
+//
+//     // data.results.forEach(item => {
+//     //     const {title, description, author, link} = item
+//     //     const modalContent = document.createElement('div');
+//     //     modalContent.className = 'modal-content';
+//     //     modalContent.innerHTML = `
+//     //                 <h3 class="modal-title">${title}</h3>
+//     //                 <div class="description">
+//     //                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dignissimos doloremque esse in
+//     //                     ipsam, optio pariatur quos ullam. Asperiores dicta dolorem excepturi ipsa maiores nobis non
+//     //                     provident quam ratione temporibus.
+//     //                 </div>
+//     //                 <div class="link">Link to site</div>
+//     //                 <div class="author">Author: Author Name</div>`
+//     //     elItem.appendChild(modalContent);
+//     // });
+//
+//
+//     // projectsPortfolio.addEventListener('click', ev => {
+//     //     ev.preventDefault();
+//     //     const target = ev.target;
+//     //     const projectEl = target.closest('.hover-button');
+//     //
+//     //     if(projectEl){
+//     //         new DBConnect().getDbData(projectEl.id)
+//     //             .then(({title, description, author, link}) => {
+//     //                 modalTitle.textContent = title;
+//     //                 modalDesc.textContent = description;
+//     //                 modalLink.textContent = link;
+//     //                 modalAuthor.textContent = author;
+//     //                 console.log(projectEl.title)
+//     //             })
+//     //             .then(() => {
+//     //                 element.classList.add('active');
+//     //                 elItem.classList.add('active');
+//     //             })
+//     //     }
+//     //
+//     //     // if (projectEl) {
+//     //     //     element.classList.add('active');
+//     //     //     elItem.classList.add('active');
+//     //     // }
+//     // })
+//
+//     element.addEventListener('click', ev => {
+//         const target = ev.target;
+//         if (target.closest('.close-modal') || target.classList.contains('modal-overlay')) {
+//             element.classList.remove('active');
+//             elItem.classList.remove('active')
+//         }
+//     })
+// }
+//MODAL
+const modalTitle = document.querySelector('.modal-title');
+const modalDesc = document.querySelector('.description');
+const modalAuthor = document.querySelector('.author');
+const modalLink = document.querySelector('.link');
+
+projectsPortfolio.addEventListener('click', ev => {
+    const element = document.querySelector('.modal-overlay');
+    const elItem = document.querySelector('.modal');
+    ev.preventDefault();
+    const target = ev.target;
+    const projectEl = target.closest('.hover-button');
+
+    if(projectEl){
+        dbConnect.getDbData(projectEl.id)
+            .then(({
+                       title,
+                       description,
+                       author,
+                       link
+            }) => {
+                modalTitle.textContent = title;
+                modalDesc.textContent = description;
+                modalLink.href = link;
+                modalAuthor.textContent = author;
+                console.log(projectEl.title)
+            })
+            .then(() => {
+                element.classList.add('active');
+                elItem.classList.add('active');
+            })
+    }
+    element.addEventListener('click', ev => {
+        const target = ev.target;
+        if (target.closest('.close-modal') || target.classList.contains('modal-overlay')) {
+            element.classList.remove('active');
+            elItem.classList.remove('active')
+        }
+    })
+})
+
+
 /* ВЫЗОВЫ ФУНКЦИЙ */
-// mobileOpenMenu();
 smoothScroll();
 navigationFixed();
 counterBlock();
-modalWindow();
+// modalWindow()
 
+const dbConnect = new DBConnect();
+dbConnect.getDbData().then(createProject);
 
 /* СОБЫТИЯ */
 hamburger.addEventListener('click', openMenu);

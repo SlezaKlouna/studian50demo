@@ -1,0 +1,70 @@
+{
+  "results": [
+    {
+      "id": "1",
+      "category": [
+        "web-des"
+      ],
+      "title": "Редизайн сайта",
+      "img": "img/redesign.png",
+      "description": "Редизайн главной страницы сайта страховой компании. Для реализации макета был использован фоторедактор Adobe Photoshop. Все изображения были взяты с фотостоков https://www.pexels.com/ и https://unsplash.com/",
+      "author": "Anna Vynnyk",
+      "link": "https://annavynnyk.com.ua/redesign.html"
+    },
+    {
+      "id": "2",
+      "category": [
+        "web-dev"
+      ],
+      "title": "Сайт портфолио",
+      "img": "img/dev.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dignissimos doloremque esse in ipsam, optio pariatur quos ullam. Asperiores dicta dolorem excepturi ipsa maiores nobis non provident quam ratione temporibus.",
+      "author": "Author name",
+      "link": ""
+    },
+    {
+      "id": "3",
+      "category": [
+        "seo"
+      ],
+      "title": "Тексты для солнечных панелей",
+      "img": "img/bg2.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dignissimos doloremque esse in ipsam, optio pariatur quos ullam. Asperiores dicta dolorem excepturi ipsa maiores nobis non provident quam ratione temporibus.",
+      "author": "Author name",
+      "link": ""
+    },
+    {
+      "id": "4",
+      "category": [
+        "des"
+      ],
+      "title": "Разработка Landing Page для сайта солнечных панелей",
+      "img": "img/fourth.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dignissimos doloremque esse in ipsam, optio pariatur quos ullam. Asperiores dicta dolorem excepturi ipsa maiores nobis non provident quam ratione temporibus.",
+      "author": "Author name",
+      "link": ""
+    },
+    {
+      "id": "5",
+      "category": [
+        "des"
+      ],
+      "title": "Разработка Landing Page для сайта солнечных панелей",
+      "img": "img/fourth.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dignissimos doloremque esse in ipsam, optio pariatur quos ullam. Asperiores dicta dolorem excepturi ipsa maiores nobis non provident quam ratione temporibus.",
+      "author": "Author name",
+      "link": ""
+    },
+    {
+      "id": "6",
+      "category": [
+        "web-dev"
+      ],
+      "title": "Разработка Landing Page для сайта солнечных панелей",
+      "img": "img/fourth.jpg",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dignissimos doloremque esse in ipsam, optio pariatur quos ullam. Asperiores dicta dolorem excepturi ipsa maiores nobis non provident quam ratione temporibus.",
+      "author": "Author name",
+      "link": ""
+    }
+  ]
+}
