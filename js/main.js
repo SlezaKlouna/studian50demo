@@ -15,6 +15,36 @@ const projectItem = document.querySelectorAll('.project-item');
 const projectItemHover = document.querySelector('.project-item-hover');
 
 
+// Change Theme
+
+const changeThemeBtn = document.querySelector('.change-theme');
+
+function initialState(themeName) {
+    localStorage.setItem('theme', themeName);
+    document.documentElement.className = themeName;
+}
+
+
+function toggleTheme() {
+    if (localStorage.getItem('theme') === 'dark-theme') {
+        initialState('light-theme');
+    } else {
+        initialState('dark-theme');
+    }
+}
+
+initialState('dark-theme');
+
+document.querySelector('.change-theme').addEventListener('click', (e) => {
+    toggleTheme();
+});
+
+
+// initialState('light-theme')
+
+// -Change Theme
+
+
 class DBConnect {
     getData = async (url) => {
         const res = await fetch(url);
@@ -191,68 +221,11 @@ const createProject = data => {
                     </button>
                 </div>
         `
-        console.log(card);
+        console.log(card)
         projectsPortfolio.appendChild(card);
     })
 }
 
-
-// const modalWindow = () => {
-//     const element = document.querySelector('.modal-overlay');
-//     const elItem = document.querySelector('.modal');
-//     // const target = ev.target;
-//
-//     // data.results.forEach(item => {
-//     //     const {title, description, author, link} = item
-//     //     const modalContent = document.createElement('div');
-//     //     modalContent.className = 'modal-content';
-//     //     modalContent.innerHTML = `
-//     //                 <h3 class="modal-title">${title}</h3>
-//     //                 <div class="description">
-//     //                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dignissimos doloremque esse in
-//     //                     ipsam, optio pariatur quos ullam. Asperiores dicta dolorem excepturi ipsa maiores nobis non
-//     //                     provident quam ratione temporibus.
-//     //                 </div>
-//     //                 <div class="link">Link to site</div>
-//     //                 <div class="author">Author: Author Name</div>`
-//     //     elItem.appendChild(modalContent);
-//     // });
-//
-//
-//     // projectsPortfolio.addEventListener('click', ev => {
-//     //     ev.preventDefault();
-//     //     const target = ev.target;
-//     //     const projectEl = target.closest('.hover-button');
-//     //
-//     //     if(projectEl){
-//     //         new DBConnect().getDbData(projectEl.id)
-//     //             .then(({title, description, author, link}) => {
-//     //                 modalTitle.textContent = title;
-//     //                 modalDesc.textContent = description;
-//     //                 modalLink.textContent = link;
-//     //                 modalAuthor.textContent = author;
-//     //                 console.log(projectEl.title)
-//     //             })
-//     //             .then(() => {
-//     //                 element.classList.add('active');
-//     //                 elItem.classList.add('active');
-//     //             })
-//     //     }
-//     //
-//     //     // if (projectEl) {
-//     //     //     element.classList.add('active');
-//     //     //     elItem.classList.add('active');
-//     //     // }
-//     // })
-//
-//     element.addEventListener('click', ev => {
-//         const target = ev.target;
-//         if (target.closest('.close-modal') || target.classList.contains('modal-overlay')) {
-//             element.classList.remove('active');
-//             elItem.classList.remove('active')
-//         }
-//     })
-// }
 //MODAL
 const modalTitle = document.querySelector('.modal-title');
 const modalDesc = document.querySelector('.description');
@@ -265,20 +238,26 @@ projectsPortfolio.addEventListener('click', ev => {
     ev.preventDefault();
     const target = ev.target;
     const projectEl = target.closest('.hover-button');
+    const btnId = target.id;
 
-    if(projectEl){
-        dbConnect.getDbData(projectEl.id)
-            .then(({
-                       title,
-                       description,
-                       author,
-                       link
-            }) => {
-                modalTitle.textContent = title;
-                modalDesc.textContent = description;
-                modalLink.href = link;
-                modalAuthor.textContent = author;
-                console.log(projectEl.title)
+    if (projectEl) {
+        dbConnect.getDbData()
+            .then(({results}) => {
+                results.forEach(item => {
+                    const {
+                        title,
+                        description,
+                        author,
+                        link,
+                        id
+                    } = item
+                    if (btnId === `modal ${id}`) {
+                        modalTitle.textContent = title;
+                        modalDesc.textContent = description;
+                        modalLink.href = link;
+                        modalAuthor.textContent = author;
+                    }
+                })
             })
             .then(() => {
                 element.classList.add('active');
