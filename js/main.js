@@ -1,5 +1,10 @@
 'use strict';
 
+window.addEventListener('load', ev => {
+   let preloader = document.querySelector('.preloader');
+   preloader.style.display = 'none';
+})
+
 const hamburger = document.querySelector('.hamburger');
 // const leftMenu = document.querySelector('.menu');
 const leftMenu = document.querySelector('.menu');
@@ -38,9 +43,6 @@ initialState('dark-theme');
 document.querySelector('.change-theme').addEventListener('click', (e) => {
     toggleTheme();
 });
-
-
-// initialState('light-theme')
 
 // -Change Theme
 
@@ -115,7 +117,6 @@ const navigationFixed = () => {
         }
     })
 }
-
 
 function sliderCreate(element, params) {
     let sliderCont = element.querySelector('.slides');
@@ -226,6 +227,8 @@ const createProject = data => {
     })
 }
 
+
+
 //MODAL
 const modalTitle = document.querySelector('.modal-title');
 const modalDesc = document.querySelector('.description');
@@ -272,6 +275,9 @@ projectsPortfolio.addEventListener('click', ev => {
         }
     })
 })
+
+
+
 
 
 /* ВЫЗОВЫ ФУНКЦИЙ */

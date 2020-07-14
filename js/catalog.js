@@ -1,5 +1,25 @@
 'use strict';
+
 const projectFilters = ()  => {
+
+    // const getProjects = (filter) => {
+    //     fetch('db/db.json')
+    //         .then(response => response.json())
+    //         .then(filter)
+    // }
+    //
+    // const choiceCategory = e => {
+    //     e.preventDefault();
+    //     if (e.target.classList.contains('tabs-item')) {
+    //         const category = e.target.dataset.category;
+    //         console.log(category)
+    //         getProjects(createProject, projrct => projrct.filter(item => item.category.includes(category)));
+    //     }
+    // }
+    //
+    //
+    // getProjects(createProject);
+
     let catalogSection = document.querySelector('.portfolio');
 
     if (catalogSection === null) {
@@ -57,3 +77,5 @@ const projectFilters = ()  => {
 };
 
 projectFilters();
+
+// const dbConnect = new DBConnect();
