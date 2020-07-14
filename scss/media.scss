@@ -33,10 +33,26 @@
   }
   //.desctop-hamburger{ display: none }
 
-  .mobile-hamburger{
-    display: flex;
-    width: 20%;
+
+  .project-hamburger-arrow-top{
+    animation: burger-hover .8s infinite ease-in-out alternate;
   }
+  .project-hamburger-arrow-center{
+    animation: burger-hover .8s infinite ease-in-out alternate forwards .16s;
+  }
+
+  .auxiliary-menu{
+    position: absolute;
+    top: 25%;
+  }
+  .languages{
+    width: 50%;
+  }
+
+  //.mobile-hamburger{
+  //  display: flex;
+  //  width: 20%;
+  //}
   .scroll-menu{
     display: none;
   }

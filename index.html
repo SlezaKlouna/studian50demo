@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Roboto:wght@300;400&display=swap"
           rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/style.css">
+    <link type="text/css" rel="stylesheet" href="css/button.css">
     <link rel="shortcut icon" href="img/favicon.png" type="image/png">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/js/all.min.js"></script>
@@ -56,15 +57,21 @@
     <div class="header-content">
 
         <div class="auxiliary-menu">
-            <button class="change-theme">
-                <i class="fas fa-adjust"></i>
-                <span class="tooltip bottom_tooltip">Изменить тему сайта</span>
-            </button>
-<!--            <select name="" id="">-->
-<!--                <option value="">RU</option>-->
-<!--                <option value="">UA</option>-->
-<!--                <option value="">EN</option>-->
-<!--            </select>-->
+<!--            <button class="change-theme">-->
+<!--                <i class="fas fa-adjust"></i>-->
+<!--                <span class="tooltip bottom_tooltip">Изменить тему сайта</span>-->
+<!--            </button>-->
+
+            <div class="switch_box box_3 change-theme">
+                <div class="toggle_switch">
+                    <input type="checkbox" class="switch_3">
+                    <svg class="checkbox" xmlns="http://www.w3.org/2000/svg" style="isolation:isolate" viewBox="0 0 168 80">
+                        <path class="outer-ring" d="M41.534 9h88.932c17.51 0 31.724 13.658 31.724 30.482 0 16.823-14.215 30.48-31.724 30.48H41.534c-17.51 0-31.724-13.657-31.724-30.48C9.81 22.658 24.025 9 41.534 9z" fill="none" stroke="#233043" stroke-width="3" stroke-linecap="square" stroke-miterlimit="3"/>
+                        <path class="is_checked" d="M17 39.482c0-12.694 10.306-23 23-23s23 10.306 23 23-10.306 23-23 23-23-10.306-23-23z"/>
+                        <path class="is_unchecked" d="M132.77 22.348c7.705 10.695 5.286 25.617-5.417 33.327-2.567 1.85-5.38 3.116-8.288 3.812 7.977 5.03 18.54 5.024 26.668-.83 10.695-7.706 13.122-22.634 5.418-33.33-5.855-8.127-15.88-11.474-25.04-9.23 2.538 1.582 4.806 3.676 6.66 6.25z"/>
+                    </svg>
+                </div>
+            </div>
             <div class="languages">
                 <div class="language"><a href="">RU</a><span>|</span></div>
                 <div class="language"><a href="">UA</a><span>|</span></div>
@@ -372,22 +379,105 @@
         звоните по указанным номерам.
     </div>
 
+<!--    <div class="contacts-content">-->
+<!--        <div class="contacts-form">-->
+<!--            <form action="">-->
+<!--                <div class="form-inputs">-->
+<!--                    <lable class="contact-content__item">-->
+<!--                        Имя*-->
+<!--                        <input type="text" placeholder="| Ведите имя" required>-->
+<!--                    </lable>-->
+<!--                    <lable class="contact-content__item"> Email*-->
+<!--                        <input type="email" placeholder="| Введите email" required>-->
+<!--                    </lable>-->
+<!--                </div>-->
+
+<!--                <lable class="massage-lable contact-content__item">-->
+<!--                    Сообщение*-->
+<!--                    <textarea name=""-->
+<!--                              id="message"-->
+<!--                              cols="30"-->
+<!--                              rows="10"-->
+<!--                              wrap="soft"-->
+<!--                              placeholder="| Введите сообщение"-->
+<!--                              required></textarea>-->
+<!--                </lable>-->
+<!--                <button type="submit" class="form-button">Отправить</button>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--        <div class="decoration-element contacts-element"></div>-->
+<!--        <div class="contacts-info">-->
+<!--            <div class="personal-data">-->
+<!--                <div class="personal-data-item">-->
+<!--                    <div class="personal-data-content contact-content__item">Телефон</div>-->
+<!--                    <div class="personal-data-text">-->
+<!--                        <span><a href="tel:380991243726" class="personal-data-link">+38(099) 124 37 26</a></span>-->
+<!--                    </div>-->
+<!--                    <div class="personal-data-text">-->
+<!--                        <span><a href="tel:380957314138" class="personal-data-link">+38(095) 731 41 38</a></span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="personal-data-content personal-data-item">-->
+<!--                    <div class="personal-data-content contact-content__item">Email</div>-->
+<!--                    <div class="personal-data-text">-->
+<!--                        <span><a href="mailto:studian50@gmail.com"-->
+<!--                                 class="personal-data-link">studian50@gmail.com</a></span>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="personal-data-content personal-data-item">-->
+<!--                    <div class="contact-content__item">Время работы</div>-->
+<!--                    <div class="personal-data-text">-->
+<!--                        <div>c 9:00 до 20:00</div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <form action="">-->
+
+<!--                    &lt;!&ndash;                    <div class="modal-overlay">&ndash;&gt;-->
+<!--                    &lt;!&ndash;                        <div class="modal">&ndash;&gt;-->
+<!--                    &lt;!&ndash;                            <a class="close-modal">&ndash;&gt;-->
+<!--                    &lt;!&ndash;                                <button class="modal-link"> &times;</button>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                            </a>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                            <div class="modal-content">&ndash;&gt;-->
+<!--                    &lt;!&ndash;                                <h3>Autorization</h3>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                                <form action="admin/admin.php" class="autorization__form" method="post">&ndash;&gt;-->
+<!--                    &lt;!&ndash;                                    <label for="" class="autorization__label">&ndash;&gt;-->
+<!--                    &lt;!&ndash;                                        Login&ndash;&gt;-->
+<!--                    &lt;!&ndash;                                        <input type="text" name="sign_login" class="autorization__input" placeholder="Enter login" required>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                                    </label>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                                    <label for="" class="autorization__label">&ndash;&gt;-->
+<!--                    &lt;!&ndash;                                        Password&ndash;&gt;-->
+<!--                    &lt;!&ndash;                                        <input type="password" name="sign_pass" class="autorization__input" placeholder="Enter password"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                                               required>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                                    </label>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                                    <button type="submit" class="autorization__button"><h3>Login</h3></button>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                                </form>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                            </div>&lt;!&ndash; content &ndash;&gt;&ndash;&gt;-->
+
+<!--                    &lt;!&ndash;                        </div>&lt;!&ndash; modal &ndash;&gt;&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
+
+<!--                    <button type="submit" class="form-button call">Заказать звонок</button>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
     <div class="contacts-content">
         <div class="contacts-form">
-            <form action="">
+            <form action="telegram.php" method="post">
                 <div class="form-inputs">
                     <lable class="contact-content__item">
                         Имя*
-                        <input type="text" placeholder="| Ведите имя" required>
+                        <input name="user_name" type="text" placeholder="| Ведите имя" required>
                     </lable>
                     <lable class="contact-content__item"> Email*
-                        <input type="email" placeholder="| Введите email" required>
+                        <input name="user_email" type="email" placeholder="| Введите email" required>
                     </lable>
                 </div>
 
                 <lable class="massage-lable contact-content__item">
                     Сообщение*
-                    <textarea name=""
+                    <textarea name="user_message"
                               id="message"
                               cols="30"
                               rows="10"
@@ -423,38 +513,37 @@
                         <div>c 9:00 до 20:00</div>
                     </div>
                 </div>
-                <form action="">
-
-                    <!--                    <div class="modal-overlay">-->
-                    <!--                        <div class="modal">-->
-                    <!--                            <a class="close-modal">-->
-                    <!--                                <button class="modal-link"> &times;</button>-->
-                    <!--                            </a>-->
-                    <!--                            <div class="modal-content">-->
-                    <!--                                <h3>Autorization</h3>-->
-                    <!--                                <form action="admin/admin.php" class="autorization__form" method="post">-->
-                    <!--                                    <label for="" class="autorization__label">-->
-                    <!--                                        Login-->
-                    <!--                                        <input type="text" name="sign_login" class="autorization__input" placeholder="Enter login" required>-->
-                    <!--                                    </label>-->
-                    <!--                                    <label for="" class="autorization__label">-->
-                    <!--                                        Password-->
-                    <!--                                        <input type="password" name="sign_pass" class="autorization__input" placeholder="Enter password"-->
-                    <!--                                               required>-->
-                    <!--                                    </label>-->
-                    <!--                                    <button type="submit" class="autorization__button"><h3>Login</h3></button>-->
-                    <!--                                </form>-->
-                    <!--                            </div>&lt;!&ndash; content &ndash;&gt;-->
-
-                    <!--                        </div>&lt;!&ndash; modal &ndash;&gt;-->
-                    <!--                    </div>-->
+                <form action="callTelegram.php" method="post" class="form-call">
+                    <div class="modal-overlay modal-overlay-call">
+                        <div class="modal modal-call">
+                            <a class="close-modal">
+                                <button class="modal-link"> &times;</button>
+                            </a>
+                            <div class="modal-content">
+                                <h3>Заказать звонок</h3>
+                                <form action="" class="autorization__form" method="post">
+                                    <label for="" class="autorization__label">
+                                        Имя
+                                        <input type="text" name="call_name" class="call__input"
+                                               placeholder="Введите ваше имя" required>
+                                    </label>
+                                    <label for="" class="autorization__label">
+                                        Телефон
+                                        <input type="tel" name="call_phone" class="call__input"
+                                               placeholder="Введите ваш номер телефона"
+                                               required>
+                                    </label>
+                                    <button type="submit" class="call__button"><h3>Заказать</h3></button>
+                                </form>
+                            </div><!-- content -->
+                        </div><!-- modal -->
+                    </div>
 
                     <button type="submit" class="form-button call">Заказать звонок</button>
                 </form>
             </div>
         </div>
     </div>
-
 
 </section>
 

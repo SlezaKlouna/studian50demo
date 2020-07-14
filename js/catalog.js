@@ -21,11 +21,12 @@ const projectFilters = ()  => {
 
     let catalog = catalogSection.querySelector('.projects');
     let catalogNav = catalogSection.querySelector('.tabs');
-    let catalogItems = catalogSection.querySelectorAll('.project-item');
+    // let catalogItems = catalogSection.querySelectorAll('.project-item');
 
     catalogNav.addEventListener('click', function(e) {
         let target = e.target;
         let item = myLib.closestItemByClass(target, 'tabs-list-item');
+        let catalogItems = catalogSection.querySelectorAll('.project-item');
 
         if (item === null || item.classList.contains('is-active')) {
             return;
