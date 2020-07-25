@@ -223,31 +223,19 @@
 }
 
 
-@media only screen and (min-width: 600px) and (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
 
   .title-section{
     width: 45%;
-    height: 15vh;
   }
 
   .header-content{
     h1{
       margin: 0;
-      width: 95%;
-      padding: 40px 30px;
     }
   }
   .languages{
     width: 30%;
-  }
-
-  .scroll-menu{
-    padding: 0 10px;
-  }
-
-  .about{
-    min-height: 50vh;
-    justify-content: center;
   }
 
   .about-content__text{
@@ -261,15 +249,6 @@
   }
   .about-content__counter{
     width: 30%;
-  }
-
-  .about-content__counter--title, .count {
-    font-size: 50px;
-  }
-
-  .count-text {
-    font-size: 20px;
-    padding: 5px;
   }
 
   .developers-slider{
@@ -298,6 +277,11 @@
     flex-direction: column;
     align-items: center;
   }
+
+  .avatar{
+    width: 250px;
+    height: 250px;
+  }
   .slides-content-title{
     font-size: 30px;
   }
@@ -315,7 +299,7 @@
   }
   .tabs{
     width: 90%;
-    height: 40vh;
+    //height: 20vh;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -339,7 +323,7 @@
   }
   .developers-slider{
     width: 90%;
-    height: 50vh;
+    height: 90vh;
   }
   .slider-item{
     width: 100%;
@@ -350,7 +334,6 @@
     .avatar{
       width: 150px;
       height: 150px;
-      background-position: center center;
     }
 
     .slides-content{
@@ -406,31 +389,5 @@
 }
 
 
-// iPadPro
-@media only screen and (min-width: 1024px) and (max-width: 1200px){
-  .title-section{
-    height: 10vh;
-  }
-
-  .tabs{
-    height: 25vh;
-  }
-
-  .developers{
-    min-height: 55vh;
-  }
-
-  .delelopers-block{
-    height: 40vh;
-  }
-
-  .developers-slider{
-    height: 35vh;
-  }
-
-  .contacts{
-    min-height: 50vh;
-  }
-}
 
 // -MEDIA

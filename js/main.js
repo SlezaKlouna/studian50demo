@@ -29,37 +29,36 @@ function initialState(themeName) {
     document.documentElement.className = themeName;
 }
 
+initialState('dark-theme');
 
 function toggleTheme() {
-    if (localStorage.getItem('theme') === 'dark-theme') {
-        initialState('light-theme');
-    } else {
+    if (localStorage.getItem('theme') === 'light-theme') {
         initialState('dark-theme');
+    } else {
+        initialState('light-theme');
     }
 }
 
-initialState('dark-theme');
-
-document.querySelector('.change-theme').addEventListener('click', (e) => {
+document.querySelector('.change-theme').addEventListener('click', ev => {
     toggleTheme();
 });
 
 // -Change Theme
 
 
-class DBConnect {
-    getData = async (url) => {
-        const res = await fetch(url);
-        if (res.ok) {
-            return res.json();
-        } else {
-            throw new Error(`Failed to access data ${url}`)
-        }
-    }
-    getDbData = async () => {
-        return await this.getData('db/db.json')
-    }
-}
+// class DBConnect {
+//     getData = async (url) => {
+//         const res = await fetch(url);
+//         if (res.ok) {
+//             return res.json();
+//         } else {
+//             throw new Error(`Failed to access data ${url}`)
+//         }
+//     }
+//     getDbData = async () => {
+//         return await this.getData('db/db.json')
+//     }
+// }
 
 // const dbConnect = new DBConnect();
 
@@ -205,76 +204,76 @@ sliderCreate(document.querySelector('.developers-slider'), {
     autoPlay: true,
 });
 
-
-const createProject = data => {
-    data.results.forEach(item => {
-        const {title, img, category, id} = item
-        const card = document.createElement('div');
-        card.classList.add('project-item');
-        card.dataset.category = `${category}`
-        card.style.backgroundImage = `url(${img})`;
-        card.innerHTML = `
-                <div class="project-item-hover">
-                    <h3 class="hover-title">${title}</h3>
-                    <button id="modal ${id}"
-                            class="hover-button modal-open"
-                            data-open-modal="">Подробнее ...
-                    </button>
-                </div>
-        `
-        console.log(card)
-        projectsPortfolio.appendChild(card);
-    })
-}
+//
+// const createProject = data => {
+//     data.results.forEach(item => {
+//         const {title, img, category, id} = item
+//         const card = document.createElement('div');
+//         card.classList.add('project-item');
+//         card.dataset.category = `${category}`
+//         card.style.backgroundImage = `url(${img})`;
+//         card.innerHTML = `
+//                 <div class="project-item-hover">
+//                     <h3 class="hover-title">${title}</h3>
+//                     <button id="modal ${id}"
+//                             class="hover-button modal-open"
+//                             data-open-modal="">Подробнее ...
+//                     </button>
+//                 </div>
+//         `
+//         console.log(card)
+//         projectsPortfolio.appendChild(card);
+//     })
+// }
 
 
 
 //MODAL
-const modalTitle = document.querySelector('.modal-title');
-const modalDesc = document.querySelector('.description');
-const modalAuthor = document.querySelector('.author');
-const modalLink = document.querySelector('.link');
-
-projectsPortfolio.addEventListener('click', ev => {
-    const element = document.querySelector('.modal-overlay');
-    const elItem = document.querySelector('.modal');
-    ev.preventDefault();
-    const target = ev.target;
-    const projectEl = target.closest('.hover-button');
-    const btnId = target.id;
-
-    if (projectEl) {
-        dbConnect.getDbData()
-            .then(({results}) => {
-                results.forEach(item => {
-                    const {
-                        title,
-                        description,
-                        author,
-                        link,
-                        id
-                    } = item
-                    if (btnId === `modal ${id}`) {
-                        modalTitle.textContent = title;
-                        modalDesc.textContent = description;
-                        modalLink.href = link;
-                        modalAuthor.textContent = author;
-                    }
-                })
-            })
-            .then(() => {
-                element.classList.add('active');
-                elItem.classList.add('active');
-            })
-    }
-    element.addEventListener('click', ev => {
-        const target = ev.target;
-        if (target.closest('.close-modal') || target.classList.contains('modal-overlay')) {
-            element.classList.remove('active');
-            elItem.classList.remove('active')
-        }
-    })
-})
+// const modalTitle = document.querySelector('.modal-title');
+// const modalDesc = document.querySelector('.description');
+// const modalAuthor = document.querySelector('.author');
+// const modalLink = document.querySelector('.link');
+//
+// projectsPortfolio.addEventListener('click', ev => {
+//     const element = document.querySelector('.modal-overlay');
+//     const elItem = document.querySelector('.modal');
+//     ev.preventDefault();
+//     const target = ev.target;
+//     const projectEl = target.closest('.hover-button');
+//     const btnId = target.id;
+//
+//     if (projectEl) {
+//         dbConnect.getDbData()
+//             .then(({results}) => {
+//                 results.forEach(item => {
+//                     const {
+//                         title,
+//                         description,
+//                         author,
+//                         link,
+//                         id
+//                     } = item
+//                     if (btnId === `modal ${id}`) {
+//                         modalTitle.textContent = title;
+//                         modalDesc.textContent = description;
+//                         modalLink.href = link;
+//                         modalAuthor.textContent = author;
+//                     }
+//                 })
+//             })
+//             .then(() => {
+//                 element.classList.add('active');
+//                 elItem.classList.add('active');
+//             })
+//     }
+//     element.addEventListener('click', ev => {
+//         const target = ev.target;
+//         if (target.closest('.close-modal') || target.classList.contains('modal-overlay')) {
+//             element.classList.remove('active');
+//             elItem.classList.remove('active')
+//         }
+//     })
+// })
 
 
 
@@ -286,8 +285,8 @@ navigationFixed();
 counterBlock();
 // modalWindow()
 
-const dbConnect = new DBConnect();
-dbConnect.getDbData().then(createProject);
+// const dbConnect = new DBConnect();
+// dbConnect.getDbData().then(createProject);
 
 /* СОБЫТИЯ */
 hamburger.addEventListener('click', openMenu);

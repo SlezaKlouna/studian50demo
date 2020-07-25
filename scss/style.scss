@@ -49,7 +49,7 @@ a{
   color: var(--second-color);
 
   &:hover{
-    cursor: $cursorImage, pointer;
+    cursor: pointer;
   }
 }
 
@@ -63,7 +63,7 @@ a{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #1a1a1a;
+  background-color: $bgMainColor;
   z-index: 9999;
 }
 
@@ -88,7 +88,7 @@ a{
       position: absolute;
       width: 2px;
       height: 0;
-      background-color: rgb(255,255,255);
+      background-color: $textColor;
       bottom: 0;
 
       &:nth-child(1) {
@@ -270,7 +270,7 @@ a{
 .header{
   background-image: url('../img/bg6.jpg');
   background-size: cover;
-  background-position: center center;
+  background-position: 50% 60%;
   background-repeat: no-repeat;
   display: flex;
   justify-content: space-between;
@@ -281,13 +281,13 @@ a{
     .header{
       flex-direction: column;
       height: 100vh;
-      background-color: #fff;
+      background-color: $textColor;
     }
   }
 }
 
 .home-overlay {
-  background-color: rgba(26, 26, 26, 0.6);
+  background-color: $homeOverlay;
   background-image: url(../img/pattern.png);
   background-repeat: repeat;
   height: 100vh;
@@ -399,7 +399,7 @@ a{
 }
 
 .close{
-  cursor: $cursorImage, pointer;
+  cursor: pointer;
   height: 10%;
 
   &:hover{
@@ -447,7 +447,7 @@ a{
     text-transform: uppercase;
     line-height: 55px;
     letter-spacing: 5px;
-    margin-top: 150px;
+    margin-top: 200px;
 
     span{
       background-color: $mainColor;
@@ -820,7 +820,7 @@ a{
   .service-item-text{
     font-size: 13px;
     line-height: 1.3;
-    font-family: "Roboto",sans-serif;
+    font-family: $secondFont;
     font-weight: 100;
   }
 }
@@ -875,7 +875,7 @@ a{
       .project-item-hover{
         opacity: 1;
         //cursor: $cursorImage, pointer;
-        cursor: $cursorImage, pointer;
+        cursor: pointer;
       }
       .hover-title{
         right: 0;
@@ -919,7 +919,7 @@ a{
     color: $mainColor;
     border-left: 2px solid $mainColor;
     transition: .3s ease-in;
-    cursor: url("../img/cursor1.png"), pointer;
+    cursor: pointer;
   }
 }
 
@@ -947,7 +947,7 @@ a{
   //color: $textColor;
   color: var(--second-color);
   font-family: inherit;
-  cursor: $cursorImage, pointer;
+  cursor: pointer;
   outline: none;
   border-bottom: 1px solid transparent;
 }
@@ -1050,7 +1050,7 @@ a{
   display: inline-block;
   width: 18px;
   height: 18px;
-  cursor: $cursorImage, pointer;
+  cursor: pointer;
   margin: 0 5px;
   //background-color: $bgSlider;
   background-color: var(--second-color);
@@ -1200,7 +1200,7 @@ a{
   text-transform: uppercase;
   padding: 5px 10px;
   font-family: $mainFont;
-  cursor: $cursorImage, pointer;
+  cursor: pointer;
   font-size: 22px;
   margin-top: 20px;
   transition: .3s ease-in;
@@ -1245,6 +1245,42 @@ a{
 
 .call{
   width: 80%;
+}
+
+.call__input{
+  width: 100%;
+  height: 35px;
+  outline: none;
+  margin: 5px 0;
+  padding: 0 5px;
+  background-color: transparent;
+  color: $bgMainColor;
+  border: 1px solid $bgMainColorRGB;
+
+  &:focus{
+    transition: .3s ease-in;
+    border: 1px solid $mainColor;
+  }
+}
+
+.call__button{
+  width: 100%;
+  border: 1px solid $bgMainColorRGB;
+  background: transparent;
+  color: $bgMainColor;
+  padding: 10px;
+  font-family: "Poiret One", cursive;
+  cursor: url(../img/cursor1.png), pointer;
+  font-size: 14px;
+  margin-top: 5px;
+  transition: 0.3s ease-in;
+
+  &:hover{
+    transition: .4s ease-in;
+    border: 1px solid $mainColor;
+    //border-bottom: 1px solid $mainColor;
+    color: $mainColor;
+  }
 }
 
 // -CONTACTS
@@ -1342,7 +1378,7 @@ a{
 
 .close-modal {
   position: absolute;
-  cursor: $cursorImage, pointer;
+  cursor: pointer;
   top: 5px;
   right: 15px;
   opacity: 0;
@@ -1361,7 +1397,7 @@ a{
   transition: .5s ease;
   border: none;
   background-color: transparent;
-  cursor: $cursorImage, pointer;
+  cursor: pointer;
   outline: none;
 
   &:hover{

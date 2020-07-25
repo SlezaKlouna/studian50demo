@@ -1,0 +1,32 @@
+.project-information {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-image {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+.project-image img {
+  max-width: 50%;
+}
+
+.project-description {
+  width: 80%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 200;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.title, .project-image, .project-description, .button-back {
+  padding: 20px 0;
+}
+
+.back:hover {
+  color: #f3c333;
+  transition: 0.4s ease-in;
+}
