@@ -39,9 +39,10 @@ function toggleTheme() {
     }
 }
 
-document.querySelector('.change-theme').addEventListener('click', ev => {
+changeThemeBtn.addEventListener('click', ev => {
     toggleTheme();
 });
+
 
 // -Change Theme
 
